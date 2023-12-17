@@ -1,4 +1,5 @@
 # SfLayout
+![Preview image](preview.png)
 A style with a Safari-like layout, while retaining a bit of the firefox look (aside from some tuned corner radiuses).
 
 #### :warning: Warning
