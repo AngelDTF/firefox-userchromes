@@ -1,0 +1,234 @@
+/* --- Global --- */
+:root
+{
+  --toolbar-bgcolor: var(--lwt-selected-tab-background-color, var(--tab-selected-bgcolor, light-dark(rgb(255, 255, 255), rgb(66, 65, 77)))) !important;
+  --toolbarbutton-icon-fill: light-dark(rgb(95, 99, 104), rgb(241, 243, 244)) !important;
+  --toolbarbutton-border-radius: 16px !important;
+  --toolbarbutton-inner-padding: 6px !important;
+  --toolbarbutton-icon-padding: calc(var(--toolbarbutton-inner-padding) / 2);
+  --toolbar-field-focus-border-color: #1A73E8 !important;
+  --tab-border-radius: var(--toolbarbutton-border-radius) !important;
+  --tab-hover-color: color-mix(in srgb, var(--toolbar-bgcolor) 60%, light-dark(rgb(224, 227, 229), rgb(30, 32, 35)));
+  --tab-separator-color: light-dark(rgb(104, 107, 110), rgb(125, 127, 129));
+  --tab-max-width: 240px;
+  --tab-pinned-width: 40px;
+  --inline-tab-padding: 12px !important;
+  --focus-outline-width: 2px !important;
+  --focus-outline-inset: 0 !important;
+  --titlebarbutton-hover-color: light-dark(hsla(0,0%,0%,.12), hsla(0,0%,100%,.22));
+  --titlebarbutton-active-color: light-dark(hsla(0,0%,0%,.22), hsla(0,0%,100%,.27));
+  --address-separator-color: light-dark(rgb(155, 156, 158), rgb(124, 124, 126));
+  --bookmark-separator-color: light-dark(rgb(206, 208, 209), rgb(110, 112, 115));
+}
+
+:root, menupopup, panel
+{
+  --panel-background: light-dark(rgb(255, 255, 255), rgb(41, 42, 45)) !important;
+  --panel-border-color: light-dark(rgb(225, 227, 225), rgb(68, 71, 70)) !important;
+  --panel-border-radius: 8px !important;
+  --panel-padding: 2px !important;
+  --panel-menuitem-padding: var(--panel-menuitem-padding-block) var(--panel-menuitem-padding-inline-end) var(--panel-menuitem-padding-block) var(--panel-menuitem-padding-inline-start);
+  --panel-menuitem-padding-block: 4px;
+  --panel-menuitem-padding-inline-start: 32px;
+  --panel-menuitem-padding-inline-end: calc(var(--panel-menuitem-padding-inline-start) / 2);
+  --panel-shadow: 0 4px var(--panel-shadow-margin) 1px hsla(0,0%,0%,.2) !important;
+  --panel-shadow-margin: 8px !important;
+  --panel-subview-body-padding: 0 !important;
+
+  --arrowpanel-border-color: var(--panel-border-color) !important;
+  --arrowpanel-menuitem-margin: var(--panel-padding) !important;
+  --arrowpanel-menuitem-margin-inline: 0 !important;
+  --arrowpanel-menuitem-padding: var(--panel-menuitem-padding) !important;
+  --arrowpanel-menuitem-border-radius: calc(var(--panel-border-radius) / 2) !important;
+}
+
+.titlebar-spacer, .tab-loading-burst, #context-navigation > .menuitem-iconic > hbox, .toolbarbutton-animatable-box, #urlbar-go-button, .search-go-button, #private-browsing-indicator-with-label, html[privatebrowsingmode] #fxa-toolbar-menu-button, .tab-secondary-label, html:not([fxastatus="signedin"]) #fxa-toolbar-menu-button > .toolbarbutton-badge-stack > vbox { display: none !important; }
+#navigator-toolbox { border-color: light-dark(rgb(219, 220, 221), rgb(96, 97, 100)) !important; }
+
+/* --- Toolbar Items --- */
+toolbarbutton, toolbarbutton image, toolbarbutton stack, toolbaritem, toolbaritem image, toolbaritem stack, #urlbar-input-container box, #urlbar-input-container hbox, .tab-background, .tab-background:before, .tab-background:after, .tab-close-button { transition: background-color 100ms ease-out !important; }
+toolbar .toolbarbutton-1 > .toolbarbutton-icon, toolbar .toolbarbutton-1 > .toolbarbutton-text, toolbar .toolbarbutton-1 > .toolbarbutton-badge-stack { padding: var(--toolbarbutton-icon-padding) !important; }
+toolbar .toolbarbutton-1 > .toolbarbutton-badge-stack > box { max-width: 22px; max-height: 22px; }
+.toolbarbutton-1 > .toolbarbutton-badge-stack > .toolbarbutton-icon { width: calc(var(--toolbarbutton-inner-padding) + 16px) !important; height: calc(var(--toolbarbutton-inner-padding) + 16px) !important; }
+#stop-reload-button[animate] > #reload-button > .toolbarbutton-icon, #stop-reload-button[animate] > #reload-button[displaystop] + #stop-button > .toolbarbutton-icon { fill: inherit !important; }
+#downloads-button[progress] > .toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-icon, #downloads-button[animate][notification] > .toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-icon { visibility: visible !important; }
+#identity-box, #tracking-protection-icon-container { fill: var(--toolbarbutton-icon-fill) !important; }
+.notification-anchor-icon { max-width: 28px; max-height: 28px; }
+#fxa-avatar-image { width: 22px !important; height: 22px !important; }
+#PlacesChevron > .toolbarbutton-icon { max-width: 20px; }
+html[privatebrowsingmode] #PanelUI-button:before { content: 'Private browsing'; color-scheme: dark; margin-block: 6px; margin-inline: var(--toolbarbutton-outer-padding); padding-block: 4px; padding-inline: 30px 8px; border: 1px inset hsla(0,0%,100%,0.2); border-radius: var(--toolbarbutton-border-radius); background-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/incognito_marker_constant.svg"); background-size: 24px; background-position: 1px 1px; background-repeat: no-repeat; background-color: rgb(36, 37, 40); color: white; }
+html[privatebrowsingmode][uidensity="compact"] #PanelUI-button:before { margin-block: 3px; }
+html[privatebrowsingmode][uidensity="touch"] #PanelUI-button:before { margin-block: 8px; }
+
+/* --- Titlebar --- */
+.titlebar-button, #alltabs-button { max-height: 30px; }
+.titlebar-button, #alltabs-button > .toolbarbutton-badge-stack { padding: 8px 16px !important; }
+#alltabs-button { margin: 0 !important; padding: 0 !important; }
+#alltabs-button:not([disabled="true"], [open], :active):hover > .toolbarbutton-badge-stack { background-color: var(--titlebarbutton-hover-color) !important; }
+#alltabs-button:not([disabled="true"]):is([open], :hover:active) > .toolbarbutton-badge-stack { background-color: var(--titlebarbutton-active-color) !important; }
+#alltabs-button > .toolbarbutton-badge-stack { border-radius: 0 !important; }
+#alltabs-button > .toolbarbutton-badge-stack > .toolbarbutton-icon { width: 16px !important; height: 16px !important; &:-moz-window-inactive { fill: color-mix(in srgb, currentColor 60%, transparent) !important; } }
+#private-browsing-indicator-with-label { order: -1; margin-inline: 12px 4px !important; }
+
+/* --- Tabs --- */
+#tabbrowser-arrowscrollbox > tab:first-child { margin-inline-start: 8px !important; }
+html:not([sizemode="maximized"]) #tabbrowser-tabs { padding-top: 8px; }
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) { box-shadow: none !important; }
+.tabbrowser-tab { margin-inline-end: -1px !important; padding: 0 !important; min-width: 1px !important; overflow: visible !important; overflow-clip-margin: unset !important; position: relative; }
+.tabbrowser-tab[pinned="true"] { max-width: var(--tab-pinned-width); transition: min-width 100ms ease-out, max-width 100ms ease-out !important; }
+.tabbrowser-tab[fadein]:not([pinned]) { max-width: var(--tab-max-width) !important; }
+.tabbrowser-tab:is([selected], [multiselected]) { z-index: 2; color: inherit !important; }
+#tabbrowser-tabs[movingtab] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[selected], #tabbrowser-tabs[movingtab] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[multiselected] { z-index: 3 !important; }
+.tabbrowser-tab:after { content: ''; width: 1px; height: 50%; background-color: var(--tab-separator-color); opacity: 0.75; position: absolute; top: 25%; right: 0; }
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) { margin-inline-start: 0 !important; }
+.tab-background { margin: 0 !important; border-radius: 8px 8px 0 0 !important; z-index: 1; }
+.tab-background:before, .tab-background:after { content: ''; width: 8px; height: 8px; background-color: transparent; position: absolute; bottom: 0; }
+.tab-background:is([selected], [multiselected]):before, .tab-background:is([selected], [multiselected]):after { background-color: var(--toolbar-bgcolor); transition: none !important; z-index: 1; }
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) { background-color: var(--tab-hover-color) !important; }
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]):before, .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]):after { background-color: var(--tab-hover-color); }
+.tab-background:before { left: -8px; clip-path: path("M 0 0 V 8 H 8 V 0 M 4 -12 A 1 1 90 0 1 -10 6"); }
+.tab-background:after { right: -8px; clip-path: path("M 8 0 V 8 H 0 V 0 M 4 -12 A 1 1 90 0 0 18 6"); }
+.tab-content { z-index: 2; :root:not([uidensity="compact"]) &[pinned] { padding: 0 var(--inline-tab-padding) !important; } }
+#TabsToolbar #firefox-view-button[open]:not(:focus-visible) > .toolbarbutton-icon, .tab-background[selected]:not([multiselected]) { outline: 0 !important; }
+.tab-close-button { width: 16px !important; height: 16px !important; margin-inline-end: -4px !important; padding: 1px !important; }
+:root:not([privatebrowsingmode], [firefoxviewhidden]) :is(toolbarbutton, toolbarpaletteitem) + #tabbrowser-tabs, :root[privatebrowsingmode]:not([firefoxviewhidden]) :is(toolbarbutton:not(#firefox-view-button), toolbarpaletteitem:not(#wrapper-firefox-view-button)) + #tabbrowser-tabs { margin-inline-start: 4px !important; }
+#TabsToolbar .toolbarbutton-1 { margin: 0 0 0 8px !important; }
+#TabsToolbar .toolbarbutton-1.chromeclass-toolbar-additional { margin-inline: 0px !important; }
+#TabsToolbar .toolbarbutton-1.chromeclass-toolbar-additional:first-child { margin-inline-start: 4px !important; }
+#TabsToolbar .toolbarbutton-1 > .toolbarbutton-icon { width: 28px !important; height: 28px !important; padding: 4px !important; }
+#TabsToolbar .toolbarbutton-1:hover > .toolbarbutton-icon { background-color: var(--titlebarbutton-hover-color) !important; }
+#TabsToolbar .toolbarbutton-1:active > .toolbarbutton-icon { background-color: var(--titlebarbutton-active-color) !important; }
+
+/* --- Navigation --- */
+/* The following makes the address bar pixel perfect, but has high potential to break stuff. Since it's only a 2 pixel difference, I've decided to leave it out.
+#urlbar-container[breakout] { min-height: calc(var(--urlbar-container-height) + 2px) !important; }
+#urlbar[breakout] { height: calc(var(--urlbar-height) + 2px) !important; top: calc(((var(--urlbar-toolbar-height) + 2px) - (var(--urlbar-height) + 2px)) / 2) !important; }
+#urlbar[breakout][breakout-extend], #urlbar[breakout][breakout-extend-disabled][open] { height: auto !important; }
+#urlbar[breakout][breakout-extend] { top: 1px !important; }*/
+#identity-box[pageproxystate="valid"].notSecureText > .identity-box-button, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button, #urlbar-label-box { background-color: transparent !important; position: relative; }
+#identity-box[pageproxystate="valid"].notSecureText > .identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover:not([open]) { background-color: var(--urlbar-box-hover-bgcolor) !important; }
+#identity-box[pageproxystate="valid"].notSecureText > .identity-box-button:hover:active, #identity-box[pageproxystate="valid"].notSecureText > .identity-box-button[open="true"], #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:hover:active, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button[open="true"], #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover:active, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button[open="true"] { background-color: var(--urlbar-box-active-bgcolor) !important; }
+#identity-box[pageproxystate="valid"].notSecureText > .identity-box-button:after, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:after, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:after, #urlbar-label-box:after { content: ''; width: 1px; height: 55%; background-color: var(--address-separator-color); position: absolute; top: 27.5%; right: 0; opacity: 1; transition: opacity 100ms ease-out; }
+#identity-box[pageproxystate="valid"].notSecureText > .identity-box-button:is(:hover, :active, [open="true"]):after, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:is(:hover, :active, [open="true"]):after, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:is(:hover, :active, [open="true"]):after { opacity: 0; }
+#zoom-reset-button > label { display: flex !important; flex: 0 0 auto !important; justify-content: center; align-items: center; }
+#urlbar[open] > #urlbar-background { box-shadow: var(--panel-shadow) !important; }
+.urlbarView { margin: 0 !important; border: none !important; width: 100% !important; }
+.urlbarView-body-inner { #urlbar[open] > .urlbarView > .urlbarView-body-outer > & { border: none !important; } }
+.urlbarView-results { padding-block: 0 !important; }
+.urlbarView-row { border: none !important; border-radius: 0 !important; position: relative; }
+.urlbarView-row[selected]:after { content: ''; width: 5px; position: absolute; top: 0; left: 0; bottom: 0; background-color: rgb(26, 115, 232); border-radius: 0 3.5px 3.5px 0; }
+.urlbarView-row-inner { padding-block: 10px !important; }
+.urlbarView:not([noresults]) > .search-one-offs:not([hidden]) { border: none !important; }
+.urlbarView-row, .search-one-offs { padding-inline: 8px !important; }
+
+/* --- Bookmarks --- */
+#PlacesToolbar { margin-block-end: 4px; }
+#personal-toolbar-empty-description, toolbarbutton.bookmark-item:not(.subviewbutton) { margin: 0 2px !important; padding: 6px !important; }
+#managed-bookmarks > .toolbarbutton-icon, #bookmarks-toolbar-placeholder > .toolbarbutton-icon, #PlacesToolbarItems > .bookmark-item > .toolbarbutton-icon[label]:not([label=""]), #PersonalToolbar #import-button > .toolbarbutton-icon, #OtherBookmarks.bookmark-item[container] > .toolbarbutton-icon { margin-inline-end: 8px !important; }
+#OtherBookmarks { margin-inline: 4px 2px !important; position: relative; }
+#OtherBookmarks:before { content: ''; width: 1px; height: 66.66%; background-color: var(--bookmark-separator-color); position: absolute; top: 16.66%; left: -4px; }
+toolbarseparator { padding-inline: 2px !important; }
+#PlacesToolbarItems > toolbarseparator::before { border-image-source: linear-gradient(transparent 6px, var(--bookmark-separator-color) 6px, var(--bookmark-separator-color) calc(100% - 6px), transparent calc(100% - 6px)) !important; }
+
+/* --- Context/Popup Menus --- */
+menuitem, menu { margin: 0 !important; padding: var(--panel-menuitem-padding) !important; }
+menuitem[checked="true"] { padding-inline-start: 8px !important; }
+#context-navigation { flex-direction: column !important; }
+#context-navigation > .menuitem-iconic { width: initial !important; flex: initial !important; justify-content: initial !important; align-items: initial !important; list-style-image: none !important; &:where([_moz-menuactive]:not([disabled="true"])) { background-color: -moz-menuhover !important; } }
+#context-navigation > .menuitem-iconic:before { content: attr(aria-label); }
+menuseparator, panel toolbarseparator { padding-inline: 4px !important; opacity: 0.5; }
+panel vbox > toolbaritem { padding: var(--panel-padding) !important; }
+.panel-header, #appMenu-zoom-controls { --arrowpanel-menuitem-border-radius: var(--toolbarbutton-border-radius) !important; }
+.panel-header { padding: 8px !important; }
+.panel-subview-footer-button:not(#protections-popup-footer, #identity-popup-clear-sitedata-footer) { margin-bottom: var(--arrowpanel-menuitem-margin) !important; }
+/*panel description*/ #identity-popup-securityView-extended-info description { padding-inline: calc(var(--panel-menuitem-padding-inline-start) / 2) calc(var(--panel-menuitem-padding-inline-end) / 2); }
+panel[type="arrow"] toolbarbutton > .toolbarbutton-icon { max-width: 16px; max-height: 16px; }
+.all-tabs-secondary-button { margin-inline-start: 2px !important; padding: 0 6px !important; }
+#appMenu-fxa-status2:not([fxastatus]), #appMenu-zoom-controls { padding: var(--panel-menuitem-padding) !important; }
+#appMenu-fxa-label2 { margin: 0 !important; }
+#appMenu-zoom-controls > .subviewbutton { margin-inline-start: 0 !important; }
+#appMenu-zoom-controls > .subviewbutton > .toolbarbutton-icon { padding: 4px !important; width: 24px !important; max-width: 24px; height: 24px !important; max-height: 24px; }
+#appMenu-zoom-controls > .subviewbutton:not([disabled]):hover > .toolbarbutton-icon, #appMenu-zoomReset-button2:not([disabled]):hover { background-color: var(--panel-item-hover-bgcolor) !important; }
+#appMenu-zoom-controls > .subviewbutton:not([disabled]):hover:active > .toolbarbutton-icon, #appMenu-zoomReset-button2:not([disabled]):hover:active { background-color: var(--panel-item-active-bgcolor) !important; }
+#appMenu-zoomReset-button2:not([disabled]):is(:hover, :hover:active) > * { background-color: unset !important; }
+#appMenu-fullscreen-button2:not(:hover, :active) > .toolbarbutton-icon { background-color: transparent !important; }
+#appMenu-zoomReset-button2 > .toolbarbutton-text, #appMenu-fullscreen-button2 > .toolbarbutton-icon { border-radius: var(--arrowpanel-menuitem-border-radius) !important; }
+
+/* --- Custom Icons */
+.tab-close-button, #stop-button, .all-tabs-close-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/close.svg") !important; }
+.all-tabs-mute-button[soundplaying] { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/volume_up.svg") !important; }
+.all-tabs-mute-button[muted] { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/volume_off.svg") !important; }
+#tabs-newtab-button, #TabsToolbar #new-tab-button, #appMenu-zoomEnlarge-button2 { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/add.svg") !important; }
+.private-browsing-indicator-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/incognito_marker.svg") !important; }
+#back-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/arrow_back.svg") !important; }
+#forward-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/arrow_forward.svg") !important; }
+#reload-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/refresh.svg") !important; }
+#urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/security.svg") !important; }
+#identity-icon, .panel-info-button > image { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/info_outline.svg") !important; }
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon, #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon, #identity-popup[connection^="secure"] .identity-popup-security-connection { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/lock.svg") !important; color: initial !important; }
+.identity-popup-security-connection { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/warning.svg") !important; color: rgb(217, 48, 37) !important; }
+#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon, #find-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/search.svg") !important; }
+.urlbarView-button-menu { background-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/more_vert.svg") !important; }
+#permissions-granted-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/tune.svg") !important; }
+.geo-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/location_on.svg") !important; }
+.geo-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/location_off.svg") !important; }
+.desktop-notification-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/notifications_on.svg") !important; }
+.desktop-notification-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/notifications_off.svg") !important; }
+.camera-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/videocam_on.svg") !important; }
+.camera-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/videocam_off.svg") !important; }
+.microphone-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/mic_on.svg") !important; }
+.microphone-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/mic_off.svg") !important; }
+.screen-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/screen_share_on.svg") !important; }
+.screen-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/screen_share_off.svg") !important; }
+.persistent-storage-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/folder_on.svg") !important; }
+.persistent-storage-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/folder_off.svg") !important; }
+.popup-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/web_asset_on.svg") !important; }
+.popup-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/web_asset_off.svg") !important; }
+#canvas-notification-icon, .canvas-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/image_on.svg") !important; }
+.canvas-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/image_off.svg") !important; }
+.midi-icon, .midi-sysex-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/piano_on.svg") !important; }
+.midi-icon.blocked-permission-icon, .midi-sysex-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/piano_off.svg") !important; }
+.install-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/extension_on.svg") !important; }
+.install-icon.blocked-permission-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/extension_off.svg") !important; }
+#reader-mode-button > .urlbar-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/reader_mode.svg") !important; }
+#picture-in-picture-button > .urlbar-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/pip.svg") !important; }
+#picture-in-picture-button[pipactive] > .urlbar-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/pip_exit.svg") !important; }
+#translations-button > .urlbar-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/translate.svg") !important; }
+#shopping-sidebar-button > .urlbar-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/shopping_mode.svg") !important; }
+#pageAction-panel-bookmark, #star-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/star_outline.svg") !important; }
+#pageAction-panel-bookmark[starred], #star-button[starred] { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/star.svg") !important; }
+#unified-extensions-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/extension.svg") !important; --toolbarbutton-icon-padding: 6px; }
+#downloads-button, #downloads-indicator-anchor { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/download.svg") !important; }
+html:not([fxastatus="signedin"]) #fxa-toolbar-menu-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/account_circle.svg") !important; }
+#PanelUI-menu-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/more_vert.svg") !important; }
+#history-panelmenu { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/schedule.svg") !important; }
+#save-page-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/save.svg") !important; }
+#print-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/print.svg") !important; }
+#open-file-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/open_in_browser.svg") !important; }
+#sidebar-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/dock_to_right.svg") !important; }
+#zoom-out-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/zoom_out.svg") !important; }
+#zoom-in-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/zoom_in.svg") !important; }
+#cut-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/content_cut.svg") !important; }
+#copy-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/content_copy.svg") !important; }
+#paste-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/content_paste.svg") !important; }
+#characterencoding-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/glyphs.svg") !important; }
+#email-link-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/mail.svg") !important; }
+#logins-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/key.svg") !important; }
+#sync-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/sync_alt.svg") !important; }
+#screenshot-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/screenshot_keyboard.svg") !important; }
+#preferences-button, .search-setting-button > .button-box > .button-icon { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/settings.svg") !important; }
+#panic-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/report.svg") !important; }
+#privatebrowsing-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/incognito_icon.svg") !important; }
+#developer-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/construction.svg") !important; }
+#import-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/card_membership.svg") !important; }
+#new-window-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/new_window.svg") !important; }
+#fullscreen-button, #appMenu-fullscreen-button2 { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/fullscreen.svg") !important; }
+#fullscreen-button[checked], #appMenu-fullscreen-button2[checked] { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/fullscreen_exit.svg") !important; }
+#bookmarks-menu-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/bookmarks.svg") !important; }
+#home-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/home.svg") !important; }
+#library-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/menu_book.svg") !important; }
+#firefox-view-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/tab_group.svg") !important; }
+#appMenu-zoomReduce-button2 { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/remove.svg") !important; }
+.bookmark-item { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/public.svg") !important; }
+.bookmark-item[container] { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/folder.svg") !important; }
+#PlacesChevron, #nav-bar-overflow-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/keyboard_double_arrow_right.svg") !important; }
