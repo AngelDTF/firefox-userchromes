@@ -19,6 +19,7 @@
   --titlebarbutton-active-color: light-dark(hsla(0,0%,0%,.22), hsla(0,0%,100%,.27));
   --address-separator-color: light-dark(rgb(155, 156, 158), rgb(124, 124, 126));
   --bookmark-separator-color: light-dark(rgb(206, 208, 209), rgb(110, 112, 115));
+  --content-separator-color: light-dark(rgb(219, 220, 221), rgb(96, 97, 100))
 }
 
 :root, menupopup, panel
@@ -43,7 +44,7 @@
 }
 
 .titlebar-spacer, .tab-loading-burst, #context-navigation > .menuitem-iconic > hbox, .toolbarbutton-animatable-box, #urlbar-go-button, .search-go-button, #private-browsing-indicator-with-label, html[privatebrowsingmode] #fxa-toolbar-menu-button, .tab-secondary-label, html:not([fxastatus="signedin"]) #fxa-toolbar-menu-button > .toolbarbutton-badge-stack > vbox { display: none !important; }
-#navigator-toolbox { border-color: light-dark(rgb(219, 220, 221), rgb(96, 97, 100)) !important; }
+#navigator-toolbox { border-color: var(--content-separator-color) !important; }
 
 /* --- Toolbar Items --- */
 toolbarbutton, toolbarbutton image, toolbarbutton stack, toolbaritem, toolbaritem image, toolbaritem stack, #urlbar-input-container box, #urlbar-input-container hbox, .tab-background, .tab-background:before, .tab-background:after, .tab-close-button { transition: background-color 100ms ease-out !important; }
@@ -153,6 +154,13 @@ panel[type="arrow"] toolbarbutton > .toolbarbutton-icon { max-width: 16px; max-h
 #appMenu-zoomReset-button2:not([disabled]):is(:hover, :hover:active) > * { background-color: unset !important; }
 #appMenu-fullscreen-button2:not(:hover, :active) > .toolbarbutton-icon { background-color: transparent !important; }
 #appMenu-zoomReset-button2 > .toolbarbutton-text, #appMenu-fullscreen-button2 > .toolbarbutton-icon { border-radius: var(--arrowpanel-menuitem-border-radius) !important; }
+
+/* --- Browser Content --- */
+.browserContainer > notificationbox { order: 1; }
+.browserContainer > findbar { order: 2; border-top: none !important; border-bottom: 1px solid var(--content-separator-color); }
+.browserContainer > .browserStack { order: 3; }
+.findbar-container > hbox[anonid="findbar-textbox-wrapper"] { order: 100; }
+.findbar-container > checkbox:last-of-type { margin-inline-end: auto !important; }
 
 /* --- Custom Icons */
 .tab-close-button, #stop-button, .all-tabs-close-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/main/Chromia/v1/assets/close.svg") !important; }
