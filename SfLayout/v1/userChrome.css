@@ -12,8 +12,8 @@
 
 /* --- TB Buttons --- */
 .titlebar-button { margin: 0 2px !important; padding: calc(var(--tb-btn-padding)) !important; border-radius: var(--toolbarbutton-border-radius); }
-.titlebar-buttonbox-container { position: absolute; top: 0; right: 0; margin: 8px 6px 6px; }
-[tabsintitlebar="true"] #nav-bar { padding-right: var(--tb-btn-container-width); }
+.titlebar-buttonbox-container { position: absolute; top: 0; right: 0; margin: 4px 6px !important; }
+[tabsintitlebar] #nav-bar { padding-right: var(--tb-btn-container-width) !important; }
 
 /* --- Tabs --- */
 #titlebar { order: 1; }
@@ -42,6 +42,6 @@ html:not([BookmarksToolbarOverlapsBrowser]) #nav-bar, [BookmarksToolbarOverlapsB
 #forward-button { list-style-image: url("https://raw.githubusercontent.com/AngelDTF/firefox-userchromes/f5fdcbe9e99f772ab92591bc7c53b401d1c42667/SfLayout/v1/assets/forward.svg") !important; }
 
 /* --- Misc --- */
-#private-browsing-indicator-with-label { position: absolute; top: 0; left: 0; margin: 16px !important; }
+#private-browsing-indicator-with-label { position: absolute; top: 0; left: 0; margin: 12px 16px !important; }
 #private-browsing-indicator-with-label > label { display: none; }
-[privatebrowsingmode] #nav-bar { padding-left: 40px; }
+[privatebrowsingmode] #nav-bar { padding-left: 40px !important; }
